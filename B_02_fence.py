@@ -26,7 +26,7 @@ while keep_going == "":
 
         # Calculate perimeter and price for the fence
     perimeter = 2 * (width + height)
-    price = perimeter + cost
+    price = perimeter * cost
 
     # Display output
     print()
