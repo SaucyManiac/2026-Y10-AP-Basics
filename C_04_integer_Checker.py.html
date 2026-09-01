@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>C_04_integer_Checker.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #7a7e85;}
+.s1 { color: #bcbec4;}
+.s2 { color: #cf8e6d;}
+.s3 { color: #bcbec4;}
+.s4 { color: #6aab73;}
+.s5 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+C_04_integer_Checker.py</font>
+</center></td></tr></table>
+<pre><span class="s0"># Ask user for width and loop until they</span>
+<span class="s0"># enter a number that is more than zero</span>
+<span class="s2">def </span><span class="s1">int_check</span><span class="s3">(</span><span class="s1">question</span><span class="s3">, </span><span class="s1">low</span><span class="s3">):</span>
+    <span class="s1">error </span><span class="s3">= </span><span class="s4">&quot;Please enter a number that is more than zero</span><span class="s2">\n</span><span class="s4">&quot;</span>
+    <span class="s2">while True</span><span class="s3">:</span>
+
+        <span class="s2">try</span><span class="s3">:</span>
+            <span class="s0"># ask the user for a number</span>
+            <span class="s1">response </span><span class="s3">= </span><span class="s1">int</span><span class="s3">(</span><span class="s1">input</span><span class="s3">(</span><span class="s1">question</span><span class="s3">))</span>
+
+            <span class="s0"># check that the number is more than zero</span>
+            <span class="s2">if </span><span class="s1">response </span><span class="s3">&gt;= </span><span class="s1">low</span><span class="s3">:</span>
+                <span class="s2">return </span><span class="s1">response</span>
+            <span class="s2">else</span><span class="s3">:</span>
+                <span class="s1">print</span><span class="s3">(</span><span class="s1">error</span><span class="s3">)</span>
+
+        <span class="s2">except </span><span class="s1">ValueError</span><span class="s3">:</span>
+            <span class="s1">print</span><span class="s3">(</span><span class="s1">error</span><span class="s3">)</span>
+
+
+<span class="s0"># Main Routine Goes Here</span>
+<span class="s2">for </span><span class="s1">item </span><span class="s2">in </span><span class="s1">range</span><span class="s3">(</span><span class="s5">0</span><span class="s3">,  </span><span class="s5">2</span><span class="s3">):</span>
+    <span class="s1">integer </span><span class="s3">= </span><span class="s1">int_check</span><span class="s3">( </span><span class="s4">&quot;Integer: &quot;</span><span class="s3">, </span><span class="s5">0</span><span class="s3">)</span>
+    <span class="s1">print</span><span class="s3">(</span><span class="s1">integer</span><span class="s3">)</span>
+
+    <span class="s1">print</span><span class="s3">()</span>
+
+<span class="s2">for </span><span class="s1">item </span><span class="s2">in </span><span class="s1">range</span><span class="s3">(</span><span class="s5">0</span><span class="s3">, </span><span class="s5">2</span><span class="s3">):</span>
+        <span class="s1">width </span><span class="s3">= </span><span class="s1">int_check</span><span class="s3">(</span><span class="s4">&quot;Width: &quot;</span><span class="s3">, </span><span class="s5">1</span><span class="s3">)</span>
+        <span class="s1">print</span><span class="s3">(</span><span class="s1">width</span><span class="s3">)</span>
+
+<span class="s2">for </span><span class="s1">item </span><span class="s2">in </span><span class="s1">range</span><span class="s3">(</span><span class="s5">0</span><span class="s3">,  </span><span class="s5">2</span><span class="s3">):</span>
+    <span class="s1">height </span><span class="s3">= </span><span class="s1">int_check</span><span class="s3">(</span><span class="s4">&quot;Height: &quot;</span><span class="s3">, </span><span class="s5">1</span><span class="s3">)</span>
+    <span class="s1">print</span><span class="s3">(</span><span class="s1">height</span><span class="s3">)</span></pre>
+</body>
+</html>
