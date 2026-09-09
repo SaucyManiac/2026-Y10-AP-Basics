@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>C_05_text_bits.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #7a7e85;}
+.s1 { color: #bcbec4;}
+.s2 { color: #cf8e6d;}
+.s3 { color: #bcbec4;}
+.s4 { color: #6aab73;}
+.s5 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+C_05_text_bits.py</font>
+</center></td></tr></table>
+<pre><span class="s0">#Calculates number of bits needed to represent text in ascii</span>
+<span class="s2">def </span><span class="s1">calc_text_bits</span><span class="s3">():</span>
+    <span class="s2">pass</span>
+
+    <span class="s0"># Get text from user</span>
+    <span class="s1">response </span><span class="s3">= </span><span class="s1">input</span><span class="s3">(</span><span class="s4">&quot;Enter some text: &quot;</span><span class="s3">)</span>
+
+    <span class="s0"># Calculate bits needed</span>
+    <span class="s1">num_chars </span><span class="s3">= </span><span class="s1">len</span><span class="s3">(</span><span class="s1">response</span><span class="s3">)</span>
+    <span class="s1">num_bits </span><span class="s3">= </span><span class="s1">num_chars </span><span class="s3">* </span><span class="s5">8</span>
+
+    <span class="s0"># Set up answer and return it</span>
+    <span class="s1">answer </span><span class="s3">= (</span><span class="s4">f&quot;</span><span class="s2">{</span><span class="s1">response</span><span class="s2">} </span><span class="s4">has </span><span class="s2">{</span><span class="s1">num_chars</span><span class="s2">} </span><span class="s4">characters. &quot;</span>
+              <span class="s4">f&quot;</span><span class="s2">\n</span><span class="s4">We need </span><span class="s2">{</span><span class="s1">num_chars</span><span class="s2">} </span><span class="s4">x 8 bits to represent it &quot;</span>
+              <span class="s4">f&quot;</span><span class="s2">\n</span><span class="s4">which is </span><span class="s2">{</span><span class="s1">num_bits</span><span class="s2">} </span><span class="s4">bits&quot;</span><span class="s3">)</span>
+
+    <span class="s2">return </span><span class="s1">answer</span>
+
+<span class="s0"># Main routine starts here</span>
+<span class="s1">text_ans </span><span class="s3">= </span><span class="s1">calc_text_bits</span><span class="s3">()</span>
+<span class="s1">print</span><span class="s3">(</span><span class="s1">text_ans</span><span class="s3">)</span>
+</pre>
+</body>
+</html>
