@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>B_01_factors.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #7a7e85;}
+.s1 { color: #bcbec4;}
+.s2 { color: #cf8e6d;}
+.s3 { color: #bcbec4;}
+.s4 { color: #6aab73;}
+.s5 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+B_01_factors.py</font>
+</center></td></tr></table>
+<pre><span class="s0"># Generates headings (eg: ---- Heading ----)</span>
+<span class="s2">def </span><span class="s1">statement_generator</span><span class="s3">(</span><span class="s1">statement</span><span class="s3">, </span><span class="s1">decoration</span><span class="s3">):</span>
+    <span class="s1">print</span><span class="s3">(</span><span class="s4">f&quot;</span><span class="s2">\n{</span><span class="s1">decoration </span><span class="s3">* </span><span class="s5">5</span><span class="s2">} {</span><span class="s1">statement</span><span class="s2">} {</span><span class="s1">decoration </span><span class="s3">* </span><span class="s5">5</span><span class="s2">}</span><span class="s4">&quot;</span><span class="s3">)</span>
+
+
+<span class="s0"># Displays instructions</span>
+<span class="s2">def </span><span class="s1">instructions</span><span class="s3">():</span>
+    <span class="s1">statement_generator</span><span class="s3">( </span><span class="s4">&quot;Instructions&quot;</span><span class="s3">, </span><span class="s4">&quot;-&quot;</span><span class="s3">)</span>
+
+    <span class="s1">print</span><span class="s3">(</span><span class="s4">''' 
+factors of your  
+chosen integer. 
+ 
+It will also tell you if yourn chosen number... 
+- is a prime number (ie: it has has two factors) 
+- is a perfect square 
+ 
+To exit the program, please type 'xxx' 
+ 
+    '''</span><span class="s3">)</span>
+
+
+<span class="s0"># Ask user for an integer between 1 and 200.</span>
+<span class="s2">def </span><span class="s1">num_check</span><span class="s3">(</span><span class="s1">question</span><span class="s3">):</span>
+    <span class="s1">error </span><span class="s3">= </span><span class="s4">&quot;Please enter a number that is between 1 and 200 inclusive</span><span class="s2">\n</span><span class="s4">&quot;</span>
+    <span class="s2">while True</span><span class="s3">:</span>
+
+        <span class="s1">response </span><span class="s3">= </span><span class="s1">input</span><span class="s3">(</span><span class="s1">question</span><span class="s3">).</span><span class="s1">lower</span><span class="s3">()</span>
+        <span class="s2">if </span><span class="s1">response </span><span class="s3">== </span><span class="s4">&quot;xxx&quot;</span><span class="s3">:</span>
+            <span class="s2">return </span><span class="s1">response</span>
+
+        <span class="s2">try</span><span class="s3">:</span>
+            <span class="s0"># ask the user for a number</span>
+            <span class="s1">response </span><span class="s3">= </span><span class="s1">int</span><span class="s3">(</span><span class="s1">response</span><span class="s3">)</span>
+
+            <span class="s0"># check that the number is more than zero</span>
+            <span class="s2">if </span><span class="s5">1 </span><span class="s3">&lt;= </span><span class="s1">response </span><span class="s3">&lt;= </span><span class="s5">200</span><span class="s3">:</span>
+                <span class="s2">return </span><span class="s1">response</span>
+            <span class="s2">else</span><span class="s3">:</span>
+                <span class="s1">print</span><span class="s3">(</span><span class="s1">error</span><span class="s3">)</span>
+
+        <span class="s2">except </span><span class="s1">ValueError</span><span class="s3">:</span>
+            <span class="s1">print</span><span class="s3">(</span><span class="s1">error</span><span class="s3">)</span>
+
+<span class="s0"># Main Routine Goes Here</span>
+
+<span class="s1">statement_generator</span><span class="s3">(</span><span class="s4">&quot;The Ultimate Factor Finder&quot;</span><span class="s3">, </span><span class="s4">&quot;-&quot;</span><span class="s3">)</span>
+
+<span class="s0"># Display instructions if requested</span>
+<span class="s1">want_instructions </span><span class="s3">= </span><span class="s1">input</span><span class="s3">(</span><span class="s4">&quot;Press &lt;enter&gt; to read the instructions or any key to continue&quot;</span><span class="s3">)</span>
+
+
+<span class="s2">if </span><span class="s1">want_instructions </span><span class="s3">== </span><span class="s4">&quot;&quot;</span><span class="s3">:</span>
+    <span class="s1">instructions</span><span class="s3">()</span>
+    
+<span class="s2">while True</span><span class="s3">:</span>
+    <span class="s1">to_factor </span><span class="s3">= </span><span class="s1">num_check</span><span class="s3">(</span><span class="s4">&quot;To factor: &quot;</span><span class="s3">)</span>
+    <span class="s1">print</span><span class="s3">(</span><span class="s4">&quot;You chose to factor&quot;</span><span class="s3">, </span><span class="s1">to_factor</span><span class="s3">)</span>
+
+    <span class="s2">if </span><span class="s1">to_factor </span><span class="s3">== </span><span class="s4">&quot;xxx&quot;</span><span class="s3">:</span>
+        <span class="s2">break</span>
+
+
+</pre>
+</body>
+</html>
