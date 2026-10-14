@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>C_03_factors.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #7a7e85;}
+.s1 { color: #bcbec4;}
+.s2 { color: #cf8e6d;}
+.s3 { color: #bcbec4;}
+.s4 { color: #2aacb8;}
+.s5 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+C_03_factors.py</font>
+</center></td></tr></table>
+<pre><span class="s0"># Works out factors, returns sorted list</span>
+<span class="s2">def </span><span class="s1">get_factors</span><span class="s3">(</span><span class="s1">to_factor</span><span class="s3">):</span>
+    <span class="s1">factors_list </span><span class="s3">= []</span>
+    <span class="s0"># square root the number to work out when looping stop</span>
+    <span class="s1">stop </span><span class="s3">= </span><span class="s1">int</span><span class="s3">(</span><span class="s1">to_factor </span><span class="s3">** </span><span class="s4">0.5</span><span class="s3">)</span>
+
+    <span class="s2">for </span><span class="s1">item </span><span class="s2">in </span><span class="s1">range</span><span class="s3">(</span><span class="s4">1</span><span class="s3">, </span><span class="s1">stop </span><span class="s3">+ </span><span class="s4">1</span><span class="s3">):</span>
+        <span class="s0"># check to see if the item is a factor</span>
+        <span class="s2">if </span><span class="s1">to_factor </span><span class="s3">% </span><span class="s1">item </span><span class="s3">== </span><span class="s4">0</span><span class="s3">:</span>
+            <span class="s0"># Add first factor to list</span>
+            <span class="s1">factors_list</span><span class="s3">.</span><span class="s1">append</span><span class="s3">(</span><span class="s1">item</span><span class="s3">)</span>
+            <span class="s0"># find second factor by dividing ' to factor ' by the first factor</span>
+            <span class="s1">partner </span><span class="s3">= </span><span class="s1">to_factor </span><span class="s3">// </span><span class="s1">item</span>
+            <span class="s0"># check second factor is not in list and add it</span>
+            <span class="s2">if </span><span class="s1">partner </span><span class="s2">not in </span><span class="s1">factors_list</span><span class="s3">:</span>
+                <span class="s1">factors_list</span><span class="s3">.</span><span class="s1">append</span><span class="s3">(</span><span class="s1">partner</span><span class="s3">)</span>
+
+    <span class="s0"># output</span>
+    <span class="s1">factors_list</span><span class="s3">.</span><span class="s1">sort</span><span class="s3">()</span>
+    <span class="s2">return </span><span class="s1">factors_list</span>
+
+<span class="s0"># main routine goes here</span>
+<span class="s2">while True</span><span class="s3">:</span>
+    <span class="s0"># Use input() to get the string from the user first</span>
+    <span class="s1">user_input </span><span class="s3">= </span><span class="s1">input</span><span class="s3">(</span><span class="s5">&quot;</span><span class="s2">\n</span><span class="s5">Enter an integer between 1 and 200 (or 'xxx' to exit): &quot;</span><span class="s3">)</span>
+
+    <span class="s0"># Check for exit condition immediately before converting to an integer</span>
+    <span class="s2">if </span><span class="s1">user_input</span><span class="s3">.</span><span class="s1">lower</span><span class="s3">() == </span><span class="s5">&quot;xxx&quot;</span><span class="s3">:</span>
+        <span class="s1">print</span><span class="s3">(</span><span class="s5">&quot;Thank you for using the program&quot;</span><span class="s3">)</span>
+        <span class="s2">break</span>
+
+    <span class="s0"># Ensure the user actually entered a valid number</span>
+    <span class="s2">if not </span><span class="s1">user_input</span><span class="s3">.</span><span class="s1">isdigit</span><span class="s3">():</span>
+        <span class="s1">print</span><span class="s3">(</span><span class="s5">&quot;Please enter a valid positive integer.&quot;</span><span class="s3">)</span>
+        <span class="s2">continue</span>
+
+    <span class="s1">user_num </span><span class="s3">= </span><span class="s1">int</span><span class="s3">(</span><span class="s1">user_input</span><span class="s3">)</span>
+
+    <span class="s0"># Ensure it fits the 1 to 200 range</span>
+    <span class="s2">if not </span><span class="s3">(</span><span class="s4">1 </span><span class="s3">&lt;= </span><span class="s1">user_num </span><span class="s3">&lt;= </span><span class="s4">200</span><span class="s3">):</span>
+        <span class="s1">print</span><span class="s3">(</span><span class="s5">&quot;Please enter a number between 1 and 200.&quot;</span><span class="s3">)</span>
+        <span class="s2">continue</span>
+
+    <span class="s0"># Call get_factors only once using the integer variable</span>
+    <span class="s1">factors </span><span class="s3">= </span><span class="s1">get_factors</span><span class="s3">(</span><span class="s1">user_num</span><span class="s3">)</span>
+    <span class="s1">print</span><span class="s3">(</span><span class="s5">f&quot;</span><span class="s2">\n</span><span class="s5">Factors of </span><span class="s2">{</span><span class="s1">user_num</span><span class="s2">} </span><span class="s5">are: </span><span class="s2">{</span><span class="s1">factors</span><span class="s2">}</span><span class="s5">&quot;</span><span class="s3">)</span>
+
+    <span class="s0"># Check for Unity (1)</span>
+    <span class="s2">if </span><span class="s1">user_num </span><span class="s3">== </span><span class="s4">1</span><span class="s3">:</span>
+        <span class="s1">print</span><span class="s3">(</span><span class="s5">&quot;1 is unity and only has one factor.&quot;</span><span class="s3">)</span>
+    <span class="s0"># Check for Prime numbers</span>
+    <span class="s2">elif </span><span class="s1">len</span><span class="s3">(</span><span class="s1">factors</span><span class="s3">) == </span><span class="s4">2</span><span class="s3">:</span>
+        <span class="s1">print</span><span class="s3">(</span><span class="s5">f&quot;</span><span class="s2">{</span><span class="s1">user_num</span><span class="s2">} </span><span class="s5">is a prime number because it has exactly two factors.&quot;</span><span class="s3">)</span>
+    <span class="s0"># Check for composite numbers</span>
+    <span class="s2">else</span><span class="s3">:</span>
+        <span class="s1">print</span><span class="s3">(</span><span class="s5">f&quot;</span><span class="s2">{</span><span class="s1">user_num</span><span class="s2">} </span><span class="s5">is a composite number.&quot;</span><span class="s3">)</span>
+
+    <span class="s0"># Check for Perfect Squares</span>
+    <span class="s0"># A perfect square always has an odd number of unique factors</span>
+    <span class="s2">if </span><span class="s1">len</span><span class="s3">(</span><span class="s1">factors</span><span class="s3">) % </span><span class="s4">2 </span><span class="s3">== </span><span class="s4">1</span><span class="s3">:</span>
+        <span class="s1">print</span><span class="s3">(</span><span class="s5">f&quot;</span><span class="s2">{</span><span class="s1">user_num</span><span class="s2">} </span><span class="s5">is a perfect square.&quot;</span><span class="s3">)</span></pre>
+</body>
+</html>
